@@ -1,8 +1,19 @@
 export default class Flip {
-	constructor() {
-		this._duration = 500;
-		this._easing = 'ease-in-out';
-		this._fill = 'both';
+	/**
+	 * Flip animation
+	 *
+	 * @param {Number} duration
+	 * @param {String} easing
+	 * @param {String} fill
+	 */
+	constructor({
+		duration = 500,
+		easing = 'ease-in-out',
+		fill = 'both'
+	} = {}) {
+		this._duration = duration;
+		this._easing = easing;
+		this._fill = fill;
 		this._positions = {}
 	}
 
@@ -76,6 +87,7 @@ export default class Flip {
 	 * Get element position and dimentions
 	 *
 	 * @param {HTMLElement} element
+	 * @returns {Object} element dimensions
 	 */
 	getElementDetails(element) {
 		const id = element.dataset.id;
