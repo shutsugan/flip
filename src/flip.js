@@ -1,6 +1,8 @@
 export default class Flip {
 	constructor() {
 		this._duration = 150;
+		this._easing = 'ease-in-out';
+		this._fill = 'both';
 		this._positions = {}
 	}
 
@@ -33,10 +35,14 @@ export default class Flip {
 			const deltaWidth = oldPosition.width / newPosition.width;
 			const deltaHeight = oldPosition.height / newPosition.height;
 
-			element.style.transform = `
-				translate(${deltaX}px, ${deltaY}px)
-				scale(${deltaWidth}, ${deltaHeight})
-			`;
+			element.animate([
+				{transform: `translate(${deltaX}px, ${deltaY}px) scale(${deltaWidth}, ${deltaHeight})`},
+				{transform: 'none'}
+			], {
+				duration: this._duration,
+				easing: this._easing,
+				fill: this._fill
+			});
 		});
 	}
 };
