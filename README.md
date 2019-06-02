@@ -1,5 +1,5 @@
 # Flip
-Flip class that calculates old dimensions, new dimensions and animate it
+Flip class that calculates old dimensions, new dimensions and animate them
 
 ## Usage
 
