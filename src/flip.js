@@ -20,7 +20,7 @@ export default class Flip {
 	/**
 	 * Memorize the elements position
 	 *
-	 * @param {HTMLElement []} elements
+	 * @param {HTMLElement} elements
 	 */
 	read(elements) {
 		elements.forEach(element => {
@@ -32,7 +32,7 @@ export default class Flip {
 	/**
 	 * Animate the element toward the new position
 	 *
-	 * @param {HTMLElement []} elements
+	 * @param {HTMLElement} elements
 	 */
 	play(elements) {
 		elements.forEach(element => {
@@ -55,7 +55,7 @@ export default class Flip {
 	/**
 	 * Remove elements with animation
 	 *
-	 * @param {HTMLElement []} elements
+	 * @param {HTMLElement} elements
 	 */
 	remove(elements) {
 		elements.forEach(element => element.parentNode.appendChild(element));
@@ -86,8 +86,8 @@ export default class Flip {
 	/**
 	 * Replace elements with animation
 	 *
-	 * @param {HTMLElement []} oldElements
-	 * @param {HTMLElement []} newElements
+	 * @param {HTMLElement} oldElements
+	 * @param {HTMLElement} newElements
 	 */
 	replace(oldElements, newElements) {
 		const parent = oldElements[0].parentNode;
