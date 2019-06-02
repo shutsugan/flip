@@ -84,6 +84,35 @@ export default class Flip {
 	}
 
 	/**
+	 * Replace elements with animation
+	 *
+	 * @param {HTMLElement []} oldElements
+	 * @param {HTMLElement []} newElements
+	 */
+	replace(oldElements, newElements) {
+		const parent = oldElements[0].parentNode;
+		const removeElements = [];
+
+		this.read(oldElements);
+
+		const newIds = newElements.map(element => {
+			parent.appendChild(element);
+
+			return element.dataset.id;
+		});
+
+		oldElements.forEach(element => {
+			const id = element.dataset.id;
+
+			if (newIds.includes(id)) parent.removeChild(element);
+			else removeElements.push(element);
+		});
+
+		this.remove(removeElements);
+		this.play(newElements);
+	}
+
+	/**
 	 * Get element position and dimentions
 	 *
 	 * @param {HTMLElement} element
