@@ -1,0 +1,16 @@
+/*!
+ * Copyright 2019 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+!function(){function t(e,n,i){function a(o,u){if(!n[o]){if(!e[o]){var l="function"==typeof require&&require;if(!u&&l)return l(o,!0);if(r)return r(o,!0);var s=new Error("Cannot find module '"+o+"'");throw s.code="MODULE_NOT_FOUND",s}var f=n[o]={exports:{}};e[o][0].call(f.exports,function(t){var n=e[o][1][t];return a(n||t)},f,f.exports,t,e,n,i)}return n[o].exports}for(var r="function"==typeof require&&require,o=0;o<i.length;o++)a(i[o]);return a}return t}()({1:[function(t,e,n){"use strict";function i(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(n,"__esModule",{value:!0});var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),r=function(){function t(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=e.duration,a=void 0===n?500:n,r=e.easing,o=void 0===r?"ease-in-out":r,u=e.fill,l=void 0===u?"both":u;i(this,t),this._duration=a,this._easing=o,this._fill=l,this._positions={}}return a(t,[{key:"read",value:function(t){var e=this;t.forEach(function(t){var n=t.dataset.id;e._positions[n]=t.getBoundingClientRect()})}},{key:"play",value:function(t){var e=this;t.forEach(function(t){var n=e.getElementDetails(t),i=n.deltaX,a=n.deltaY,r=n.deltaWidth,o=n.deltaHeight,u=[{transform:"translate("+i+"px, "+a+"px) scale("+r+", "+o+")"},{transform:"none"}];e.setAnimation(t,u)})}},{key:"remove",value:function(t){var e=this;t.forEach(function(t){return t.parentNode.appendChild(t)}),t.forEach(function(t){var n=e.getElementDetails(t),i=n.deltaX,a=n.deltaY,r=(n.deltaWidth,n.deltaHeight,[{transform:"translate("+i+"px, "+a+"px)",opacity:1},{transform:"translate("+i+"px, "+(a-30)+"px)",opacity:0}]);e.setAnimation(t,r),window.setTimeout(function(e){return t.remove()},e._duration)})}},{key:"replace",value:function(t,e){var n=t[0].parentNode,i=[];this.read(t);var a=e.map(function(t){return n.appendChild(t),t.dataset.id});t.forEach(function(t){var e=t.dataset.id;a.includes(e)?n.removeChild(t):i.push(t)}),this.remove(i),this.play(e)}},{key:"getElementDetails",value:function(t){var e=t.dataset.id,n=t.getBoundingClientRect(),i=this._positions[e];if(void 0===i){var a=[{transform:"translate(0, -30px)",opacity:0},{transform:"none",opacity:1}];return void this.setAnimation(t,a)}var r=i.x-n.x,o=i.y-n.y,u=i.width/n.width,l=i.height/n.height;return{deltaX:r,deltaY:o,deltaWidth:u,deltaHeight:l}}},{key:"setAnimation",value:function(t,e){t.animate(e,{duration:this._duration,easing:this._easing,fill:this._fill})}}]),t}();n["default"]=r},{}]},{},[1]);
