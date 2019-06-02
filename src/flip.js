@@ -83,6 +83,23 @@ export default class Flip {
 		const newPosition = element.getBoundingClientRect();
 		const oldPosition = this._positions[id];
 
+		if (oldPosition === undefined) {
+			const steps = [
+				{
+					transform: `translate(0, -30px)`,
+					opacity: 0
+				},
+				{
+					transform: 'none',
+					opacity: 1
+				}
+			];
+
+			this.setAnimation(element, steps);
+
+			return;
+		}
+
 		const deltaX = oldPosition.x - newPosition.x;
 		const deltaY = oldPosition.y - newPosition.y;
 		const deltaWidth = oldPosition.width / newPosition.width;
