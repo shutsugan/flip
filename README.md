@@ -12,7 +12,7 @@ let flip = new Flip({
 	fill: 'both'
 });
 
-// First position & opacity.
+// First position & dimentions.
 flip.read(elements);
 
 // Do you action removing, adding, or resizing elements
