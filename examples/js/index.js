@@ -1,4 +1,4 @@
-import Flip from './flip.js';
+import Flip from '../../src/flip.js';
 
 let cards = Array.from(document.querySelectorAll('.card'));
 cards.forEach(card => {
